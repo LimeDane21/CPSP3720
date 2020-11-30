@@ -1,0 +1,727 @@
+{
+  "info": {
+    "_postman_id": "37430f80-95ea-40c2-8952-b3fd4dd15efd",
+    "name": "Team5 x FinalAPI",
+    "description": "Covers creating, adding, and removing accounts.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "/createinfo",
+      "_postman_id": "f576ebc7-6f08-44c7-9729-cd9d73a2fd00",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/createinfo?username=<string>&password=<string>&card=<string>",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "createinfo"
+          ],
+          "query": [
+            {
+              "description": "username of user account",
+              "key": "username",
+              "value": "<string>"
+            },
+            {
+              "description": "password for user account",
+              "key": "password",
+              "value": "<string>"
+            },
+            {
+              "description": "card info of user",
+              "key": "card",
+              "value": "<string>"
+            }
+          ]
+        },
+        "description": "Takes and stores a user's banking information using the user's account username and password, and their card information. This information is put into the database and returns an error (400 response) or a valid response to the user (200 response)."
+      },
+      "response": [
+        {
+          "id": "4d654dce-7658-4ae7-87c7-9af538df2897",
+          "name": "Returns a success if user and pass are correct",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/createinfo?username=<string>&password=<string>&card=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "createinfo"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "key": "card",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "\"labore aliqua incididunt dolore dolore\""
+        },
+        {
+          "id": "e49fbc41-0b43-4087-b637-a134bbfb77fc",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/createinfo?username=<string>&password=<string>&card=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "createinfo"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "key": "card",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"cillum minim est\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "/getinfo",
+      "_postman_id": "47908658-8fa0-41b0-85bc-a5926c258e65",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/getinfo?username=<string>&password=<string>",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "getinfo"
+          ],
+          "query": [
+            {
+              "description": "username of user account",
+              "key": "username",
+              "value": "<string>"
+            },
+            {
+              "description": "password for user account",
+              "key": "password",
+              "value": "<string>"
+            }
+          ]
+        },
+        "description": "Takes the user's login information and either returns an error message (400 response) or their card information from the database."
+      },
+      "response": [
+        {
+          "id": "874d0a9e-1f8b-44d4-8553-8f9dd0dad035",
+          "name": "No bank info for this account is found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/getinfo?username=<string>&password=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getinfo"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"cillum minim est\"\n}"
+        },
+        {
+          "id": "c339c062-2262-43a2-9701-616d9709dc04",
+          "name": "Returns a success and card info if user and pass are correct",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/getinfo?username=<string>&password=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getinfo"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "\"labore aliqua incididunt dolore dolore\""
+        }
+      ]
+    },
+    {
+      "name": "/login",
+      "_postman_id": "79def173-783c-4ca5-9c07-f911080d9075",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/login?username=<string>&password=<string>",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "login"
+          ],
+          "query": [
+            {
+              "description": "username of user account",
+              "key": "username",
+              "value": "<string>"
+            },
+            {
+              "description": "password for user account",
+              "key": "password",
+              "value": "<string>"
+            }
+          ]
+        },
+        "description": "Returns a token or error message based on if the user can login or not\n"
+      },
+      "response": [
+        {
+          "id": "2d18dfd5-6ab9-4f24-8065-35668587711e",
+          "name": "Returns a token if correct username and password",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/login?username=<string>&password=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "45384086"
+        },
+        {
+          "id": "cd139a47-261b-48c9-835e-1b52543c1f51",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/login?username=<string>&password=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"cillum minim est\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "/inactiveAccounts",
+      "_postman_id": "00c381e6-2b5c-4e54-9bda-4f2a36763a67",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/inactiveAccounts?time=<integer>",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "inactiveAccounts"
+          ],
+          "query": [
+            {
+              "description": "time period (by months) of inactive accounts",
+              "key": "time",
+              "value": "<integer>"
+            }
+          ]
+        },
+        "description": "Returns a list of usernames of those whose accounts have been inactive for more than the time specified. Will return blank list if no inactive users for more than the specified."
+      },
+      "response": [
+        {
+          "id": "e9121220-6d52-4956-90da-2ed86067ff4f",
+          "name": "Returns a list of usernames",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/inactiveAccounts?time=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inactiveAccounts"
+              ],
+              "query": [
+                {
+                  "key": "time",
+                  "value": "<integer>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n \"laboris in Excepteur magna\",\n \"in laborum\"\n]"
+        }
+      ]
+    },
+    {
+      "name": "/removeAccounts",
+      "_postman_id": "5cb790d1-1ac1-4549-a13b-3425837054fb",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/removeAccounts?accounts=<string>&accounts=<string>",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "removeAccounts"
+          ],
+          "query": [
+            {
+              "description": "names of the inactive accounts to be deleted",
+              "key": "accounts",
+              "value": "<string>"
+            },
+            {
+              "description": "names of the inactive accounts to be deleted",
+              "key": "accounts",
+              "value": "<string>"
+            }
+          ]
+        },
+        "description": "Deletes accounts that have been inactive within a specific time frame. Will return success if inactive account was successfully terminated."
+      },
+      "response": [
+        {
+          "id": "6f499e2c-7e8e-44a6-8532-4c4fa32fe6ba",
+          "name": "Returns success if inactive account was removed",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/removeAccounts?accounts=<string>&accounts=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "removeAccounts"
+              ],
+              "query": [
+                {
+                  "key": "accounts",
+                  "value": "<string>"
+                },
+                {
+                  "key": "accounts",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "\"labore aliqua incididunt dolore dolore\""
+        }
+      ]
+    },
+    {
+      "name": "/registration",
+      "_postman_id": "b95e8e59-33c4-41f3-a29e-1295c919183f",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/registration?username=<string>&password=<string>&user_name=<string>&email=<string>",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registration"
+          ],
+          "query": [
+            {
+              "description": "username of user account",
+              "key": "username",
+              "value": "<string>"
+            },
+            {
+              "description": "password for user account",
+              "key": "password",
+              "value": "<string>"
+            },
+            {
+              "description": "name of user, like the actual name of the person",
+              "key": "user_name",
+              "value": "<string>"
+            },
+            {
+              "description": "email of user",
+              "key": "email",
+              "value": "<string>"
+            }
+          ]
+        },
+        "description": "Adds a user to the database by storing their account information into the database and returns an error (400 response) or valid response to the user (200 response)."
+      },
+      "response": [
+        {
+          "id": "6796b837-7558-48d3-9746-eba7dfadd303",
+          "name": "Returns a success if correct username or email are not already in database",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/registration?username=<string>&password=<string>&user_name=<string>&email=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "registration"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "key": "user_name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "\"labore aliqua incididunt dolore dolore\""
+        },
+        {
+          "id": "bc50c34b-dfb4-4219-8614-1951b0ed24bc",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/registration?username=<string>&password=<string>&user_name=<string>&email=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "registration"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "key": "user_name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "email",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"cillum minim est\"\n}"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": {
+      "username": "<Basic Auth Username>",
+      "password": "<Basic Auth Password>"
+    }
+  },
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "www.example.com",
+      "type": "string"
+    }
+  ]
+}
